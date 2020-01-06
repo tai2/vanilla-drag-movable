@@ -1,0 +1,16 @@
+{
+  "name": "vanilla-drag-movable-demo",
+  "version": "1.0.0",
+  "description": "An example program for vanilla-drag-movable",
+  "main": "index.ts",
+  "repository": "https://github.com/tai2/vanilla-drag-movable",
+  "scripts": {
+    "build": "",
+    "watch": "parcel index.html"
+  },
+  "author": "Taiju Muto <hello@tai2.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
