@@ -1,7 +1,7 @@
 {
   "name": "vanilla-drag-movable",
   "version": "1.0.0",
-  "description": "Drag and move behavior for DOM element",
+  "description": "Drag and move behavior for DOM elements",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
