@@ -10,6 +10,8 @@
   "repository": "https://github.com/tai2/vanilla-drag-movable",
   "scripts": {
     "build": "tsc",
+    "build:demo": "cd demo && yarn build",
+    "build:both": "run-s build build:demo",
     "watch": "tsc -w",
     "watch:demo": "cd demo && yarn watch",
     "watch:both": "run-p watch watch:demo",
