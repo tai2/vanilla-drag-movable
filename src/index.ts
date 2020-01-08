@@ -8,6 +8,7 @@ export default function dragMovable(
   }
 
   // TODO: Make base position selectable: 'top-left', 'top-right', 'bottom-left', 'bottom-right'
+  // TODO: Allow units other than px
   target.style.right = `${props.x}px`
   target.style.bottom = `${props.y}px`
   target.style.position = 'fixed' // TODO: make this a option
