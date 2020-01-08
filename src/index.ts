@@ -1,9 +1,10 @@
 export default function dragMovable(
   target: HTMLElement,
-  initialPos: { x: number; y: number },
+  { x = 0, y = 0 }: { x?: number; y?: number } = {},
 ) {
   const props = {
-    ...initialPos,
+    x,
+    y,
     dragging: false,
   }
 
