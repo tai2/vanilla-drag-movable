@@ -1,4 +1,4 @@
-import dragMovable from '..'
+import dragMovable from '../src/index'
 
 test("dragMovable sets target DOM's initial property", () => {
   document.head.innerHTML = `

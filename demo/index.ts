@@ -1,4 +1,4 @@
-import dragMovable from '..'
+import dragMovable from '../src/index'
 
 const draggable = document.getElementById('draggable')
 
