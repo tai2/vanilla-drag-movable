@@ -6,3 +6,6 @@ node_js:
   - "10"
 after_success:
   - codecov
+notifications:
+  email:
+    - info@tai2.net
