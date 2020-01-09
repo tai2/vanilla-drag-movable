@@ -1,25 +1,29 @@
+function pxNumber(pxValue: string): number {
+  return parseInt(pxValue.match(/(\d+)px/)[1], 10)
+}
+
 export default function dragMovable(
   target: HTMLElement,
   {
-    x = 0,
-    y = 0,
+    x = '0px',
+    y = '0px',
     position = 'fixed',
     zIndex = '2147483647',
-  }: { x?: number; y?: number; position?: string; zIndex?: string } = {},
+  }: { x?: string; y?: string; position?: string; zIndex?: string } = {},
 ) {
-  const props = {
-    x,
-    y,
-    dragging: false,
-  }
-
   // TODO: Make base position selectable: 'top-left', 'top-right', 'bottom-left', 'bottom-right'
-  // TODO: Allow units other than px
-  target.style.right = `${props.x}px`
-  target.style.bottom = `${props.y}px`
+  target.style.right = x
+  target.style.bottom = y
   target.style.position = position
   // TODO: We might have no need to set the z-index
   target.style.zIndex = zIndex
+
+  const computedStyle = getComputedStyle(target, '')
+  const props = {
+    x: pxNumber(computedStyle.right),
+    y: pxNumber(computedStyle.bottom),
+    dragging: false,
+  }
 
   let pointerDownX = 0
   let pointerDownY = 0

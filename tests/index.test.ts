@@ -24,7 +24,7 @@ beforeEach(() => {
 
 test("dragMovable sets target DOM's initial property", () => {
   const draggable = document.getElementById('draggable')
-  dragMovable(draggable, { x: 10, y: 20 })
+  dragMovable(draggable, { x: '10px', y: '20px' })
 
   expect(draggable.style.right).toBe('10px')
   expect(draggable.style.bottom).toBe('20px')
