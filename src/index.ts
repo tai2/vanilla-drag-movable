@@ -8,15 +8,12 @@ export default function dragMovable(
     x = '0px',
     y = '0px',
     position = 'fixed',
-    zIndex = '2147483647',
-  }: { x?: string; y?: string; position?: string; zIndex?: string } = {},
+  }: { x?: string; y?: string; position?: string } = {},
 ) {
   // TODO: Make base position selectable: 'top-left', 'top-right', 'bottom-left', 'bottom-right'
   target.style.right = x
   target.style.bottom = y
   target.style.position = position
-  // TODO: We might have no need to set the z-index
-  target.style.zIndex = zIndex
 
   const computedStyle = getComputedStyle(target, '')
   const props = {
