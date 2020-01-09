@@ -23,11 +23,7 @@ export default function dragMovable(
     dragging: false,
   }
 
-  let pointerDownX = 0
-  let pointerDownY = 0
-  // TODO: What's panel? Rename it!
-  let pointerDownPanelX = 0
-  let pointerDownPanelY = 0
+  let prevScreenX: number, prevScreenY: number
 
   // What's this?
   //target.addEventListener("touchstart", (ev: TouchEvent) => {
@@ -39,10 +35,8 @@ export default function dragMovable(
     ev.stopPropagation()
 
     props.dragging = true
-    pointerDownX = ev.screenX
-    pointerDownY = ev.screenY
-    pointerDownPanelX = props.x
-    pointerDownPanelY = props.y
+    prevScreenX = ev.screenX
+    prevScreenY = ev.screenY
 
     // TODO: Make z-order change optional
     // Move it front
@@ -64,8 +58,10 @@ export default function dragMovable(
 
     ev.preventDefault()
 
-    props.x = pointerDownPanelX + pointerDownX - ev.screenX
-    props.y = pointerDownPanelY + pointerDownY - ev.screenY
+    props.x -= ev.screenX - prevScreenX
+    props.y -= ev.screenY - prevScreenY
+    prevScreenX = ev.screenX
+    prevScreenY = ev.screenY
 
     const top = target.parentElement.clientHeight
     const bottom = 0
