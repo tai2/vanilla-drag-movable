@@ -1,6 +1,11 @@
 export default function dragMovable(
   target: HTMLElement,
-  { x = 0, y = 0 }: { x?: number; y?: number } = {},
+  {
+    x = 0,
+    y = 0,
+    position = 'fixed',
+    zIndex = '2147483647',
+  }: { x?: number; y?: number; position?: string; zIndex?: string } = {},
 ) {
   const props = {
     x,
@@ -12,8 +17,9 @@ export default function dragMovable(
   // TODO: Allow units other than px
   target.style.right = `${props.x}px`
   target.style.bottom = `${props.y}px`
-  target.style.position = 'fixed' // TODO: make this a option
-  target.style.zIndex = '2147483647' // TODO: make this a option
+  target.style.position = position
+  // TODO: We might have no need to set the z-index
+  target.style.zIndex = zIndex
 
   let pointerDownX = 0
   let pointerDownY = 0
@@ -27,6 +33,7 @@ export default function dragMovable(
 
   target.addEventListener('pointerdown', (ev: PointerEvent) => {
     ev.preventDefault()
+    ev.stopPropagation()
     props.dragging = true
     pointerDownX = ev.screenX
     pointerDownY = ev.screenY

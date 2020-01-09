@@ -38,4 +38,13 @@ test('dragMovable without extra params sets default values', () => {
 
   expect(draggable.style.right).toBe('0px')
   expect(draggable.style.bottom).toBe('0px')
+  expect(draggable.style.position).toBe('fixed')
+  expect(draggable.style.zIndex).toBe('2147483647')
+})
+
+test("position property in extra should set target's one", () => {
+  const draggable = document.getElementById('draggable')
+  dragMovable(draggable, { position: 'absolute' })
+
+  expect(draggable.style.position).toBe('absolute')
 })
