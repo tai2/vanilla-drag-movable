@@ -51,6 +51,7 @@ export default function dragMovable(
       return
     }
 
+    // TODO: What's 0x01? Name it by a variable
     if (!(ev.buttons & 0x01)) {
       props.dragging = false
       return
