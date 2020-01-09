@@ -25,6 +25,7 @@ export default function dragMovable(
 
   let pointerDownX = 0
   let pointerDownY = 0
+  // TODO: What's panel? Rename it!
   let pointerDownPanelX = 0
   let pointerDownPanelY = 0
 
