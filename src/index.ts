@@ -16,6 +16,7 @@ export default function dragMovable(
   target.style.position = position
 
   const computedStyle = getComputedStyle(target, '')
+  // TODO: Expand each properties to independent variables
   const props = {
     x: pxNumber(computedStyle.right),
     y: pxNumber(computedStyle.bottom),
@@ -35,11 +36,16 @@ export default function dragMovable(
   target.addEventListener('pointerdown', (ev: PointerEvent) => {
     ev.preventDefault()
     ev.stopPropagation()
+
     props.dragging = true
     pointerDownX = ev.screenX
     pointerDownY = ev.screenY
     pointerDownPanelX = props.x
     pointerDownPanelY = props.y
+
+    // TODO: Make z-order change optional
+    // Move it front
+    target.parentElement.insertBefore(target, null)
   })
   window.addEventListener('pointerup', () => {
     props.dragging = false
