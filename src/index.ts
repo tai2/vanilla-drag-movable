@@ -23,8 +23,6 @@ export default function dragMovable(
     dragging: false,
   }
 
-  let prevScreenX: number, prevScreenY: number
-
   // What's this?
   //target.addEventListener("touchstart", (ev: TouchEvent) => {
   //    ev.preventDefault()
@@ -35,8 +33,6 @@ export default function dragMovable(
     ev.stopPropagation()
 
     props.dragging = true
-    prevScreenX = ev.screenX
-    prevScreenY = ev.screenY
 
     // TODO: Make z-order change optional
     // Move it front
@@ -59,10 +55,8 @@ export default function dragMovable(
 
     ev.preventDefault()
 
-    props.x -= ev.screenX - prevScreenX
-    props.y -= ev.screenY - prevScreenY
-    prevScreenX = ev.screenX
-    prevScreenY = ev.screenY
+    props.x -= ev.movementX
+    props.y -= ev.movementY
 
     const top = target.parentElement.clientHeight
     const bottom = 0
